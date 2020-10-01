@@ -37,17 +37,25 @@ class Character {
     fight(opponent){
         // Opponent's attack speeds compared, quickest deals damage
         if (this.weapon.atkSpeed > opponent.weapon.atkSpeed){
-            console.log("------------------------------");
-            console.log(`${this.name} hit ${opponent.name} for ${this.weapon.damage}`);
+            console.log("-------------------------------");
+            console.log(`${this.name} hits ${opponent.name} first for ${this.weapon.damage}`);
             opponent.health -= this.weapon.damage;
             console.log(`${opponent.name}'s remaining health: ${opponent.health}`);
-            console.log("------------------------------");
-        } else {
-            console.log("------------------------------");
-            console.log(`${opponent.name} hit ${this.name} for ${opponent.weapon.damage}`);
+            console.log("<>");
+            console.log(`${opponent.name} hits ${this.name} back for ${opponent.weapon.damage}`);
             this.health -= opponent.weapon.damage;
             console.log(`${this.name}'s remaining health: ${this.health}`);
-            console.log("------------------------------");
+            console.log("-------------------------------");
+        } else {
+            console.log("-------------------------------");
+            console.log(`${opponent.name} counters ${this.name}'s attack for ${opponent.weapon.damage}`);
+            this.health -= opponent.weapon.damage;
+            console.log(`${this.name}'s remaining health: ${this.health}`);
+            console.log("<>");
+            console.log(`${this.name} hits ${opponent.name} back for ${this.weapon.damage}`);
+            opponent.health -= this.weapon.damage;
+            console.log(`${opponent.name}'s remaining health: ${opponent.health}`);
+            console.log("-------------------------------");
         }
     }
 }
