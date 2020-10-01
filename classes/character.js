@@ -11,7 +11,7 @@ class Character {
         this.weapon = weapon;
     }
 
-    // Methods
+    // Character Methods
     printCombat(){
         
     }
@@ -20,8 +20,15 @@ class Character {
 
     }
 
-    attack(opponent){
-
+    fight(opponent){
+        // Opponent's attack speeds compared and quickest hits
+        if (this.weapon.atkSpeed > opponent.weapon.atkSpeed){
+            console.log(`${this.name} hit ${opponent.name} for ${this.weapon.damage}`);
+            opponent.health -= this.weapon.damage;
+        } else {
+            console.log(`${opponent.name} hit ${this.name} for ${opponent.weapon.damage}`);
+            this.health -= opponent.weapon.damage;
+        }
     }
 }
 
